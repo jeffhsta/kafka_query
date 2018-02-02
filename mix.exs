@@ -27,7 +27,8 @@ defmodule KafkaQuery.Mixfile do
   defp deps do
     [
       {:phoenix, "~> 1.3.0"},
-      {:cowboy, "~> 1.0"}
+      {:cowboy, "~> 1.0"},
+      {:kafka_ex, "~> 0.8.1"}
     ]
   end
 end
