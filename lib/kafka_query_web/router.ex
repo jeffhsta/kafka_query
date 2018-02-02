@@ -2,10 +2,13 @@ defmodule KafkaQueryWeb.Router do
   use KafkaQueryWeb, :router
 
   pipeline :api do
-    plug :accepts, ["json"]
+    plug(:accepts, ["json"])
   end
 
-  scope "/api", KafkaQueryWeb do
-    pipe_through :api
+  scope "/", KafkaQueryWeb do
+    pipe_through(:api)
+
+    get("/messages", MessageController, :index)
+    get("/topics/:topic/messages", MessageController, :get_by_topic)
   end
 end
