@@ -30,13 +30,20 @@ defmodule KafkaQuery.Fetcher do
     |> Enum.map(fn msg ->
       %Message{
         key: msg.key,
-        value: Poison.decode!(msg.value),
+        value: decode_value(msg.value),
         index: msg.offset,
         crc: msg.crc,
         partition: partition,
         topic: topic
       }
     end)
+  end
+
+  defp decode_value(value) do
+    case Poison.decode(value) do
+      {:ok, decoded_value} -> decoded_value
+      _ -> value
+     end
   end
 
   defp get_number_partitions(topic) do
