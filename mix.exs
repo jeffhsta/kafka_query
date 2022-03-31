@@ -5,7 +5,7 @@ defmodule KafkaQuery.Mixfile do
     [
       app: :kafka_query,
       version: "0.0.1",
-      elixir: "~> 1.6",
+      elixir: "~> 1.12",
       elixirc_paths: elixirc_paths(Mix.env()),
       compilers: [:phoenix] ++ Mix.compilers(),
       start_permanent: Mix.env() == :prod,
@@ -26,9 +26,10 @@ defmodule KafkaQuery.Mixfile do
 
   defp deps do
     [
-      {:phoenix, "~> 1.3.0"},
-      {:cowboy, "~> 1.0"},
-      {:kafka_ex, "~> 0.8.1"}
+      {:phoenix, "~> 1.6"},
+      {:cowboy, "~> 2.7"},
+      {:plug_cowboy, "~> 2.5"},
+      {:kafka_ex, "~> 0.12.1"}
     ]
   end
 end
