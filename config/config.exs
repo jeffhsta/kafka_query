@@ -1,4 +1,4 @@
-use Mix.Config
+import Config
 
 config :kafka_query, KafkaQueryWeb.Endpoint,
   url: [host: "localhost"],
@@ -11,8 +11,13 @@ config :kafka_query, KafkaQueryWeb.Endpoint,
   watchers: []
 
 config :phoenix, :stacktrace_depth, 20
+config :phoenix, :json_library, Jason
 
 config :kafka_query, topics: ["user", "camp", "logging"]
+
+config :logger,
+  backends: [:console],
+  level: :debug
 
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",
