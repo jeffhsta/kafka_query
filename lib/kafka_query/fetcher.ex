@@ -40,7 +40,7 @@ defmodule KafkaQuery.Fetcher do
   end
 
   defp decode_value(value) do
-    case Poison.decode(value) do
+    case Jason.decode(value) do
       {:ok, decoded_value} -> decoded_value
       _ -> value
      end
