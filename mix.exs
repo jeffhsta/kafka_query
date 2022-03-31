@@ -29,7 +29,8 @@ defmodule KafkaQuery.Mixfile do
       {:phoenix, "~> 1.6"},
       {:cowboy, "~> 2.7"},
       {:plug_cowboy, "~> 2.5"},
-      {:kafka_ex, "~> 0.12.1"}
+      {:kafka_ex, "~> 0.12.1"},
+      {:jason, "~> 1.3"}
     ]
   end
 end
